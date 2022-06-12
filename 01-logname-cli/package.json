@@ -1,7 +1,7 @@
 {
   "name": "luka",
-  "version": "1.0.1",
-  "description": "",
+  "version": "1.1.0",
+  "description": "Get to know Luka via `npx luka`",
   "main": "index.js",
   "bin": {
     "luka": "index.js"
@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "clear-any-console": "^1.16.2"
+    "clear-any-console": "^1.16.2",
+    "cli-welcome": "^2.2.2"
   }
 }

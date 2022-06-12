@@ -1,7 +1,17 @@
 #!/usr/bin/env node
-const clearAnyConsole = require('clear-any-console')
+const welcome = require('cli-welcome')
+const pkg = require('./package.json')
 
-clearAnyConsole()
+welcome({
+  title: pkg.name,
+  tagLine: `Nice to meet you`,
+  description: pkg.description,
+  version: pkg.version,
+  bgColor: '#fadc00',
+  color: '#000000',
+  bold: true,
+  clear: true,
+})
 
 console.log(`
   luka
