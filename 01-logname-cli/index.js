@@ -1,4 +1,8 @@
 #!/usr/bin/env node
+const clearAnyConsole = require('clear-any-console')
+
+clearAnyConsole()
+
 console.log(`
   luka
 
