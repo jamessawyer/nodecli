@@ -1,0 +1,31 @@
+{
+	"name": "02-alert-cli",
+	"version": "0.0.1",
+	"description": "Cross Platform CLI Alerts with colors & colored symbols for success, info, warning, error. Works on MacOS, Linux and Windows.",
+	"main": "index.js",
+	"repository": "luka/cli-alerts",
+	"scripts": {
+		"test": "node test.js",
+		"format": "prettier --write './**/*.{js,json}'"
+	},
+	"keywords": [
+		"CLI",
+		"cli-alerts"
+	],
+	"author": {
+		"name": "Luka",
+		"email": "Luka@gmail.com",
+		"url": "https://www.twitter.com/luka"
+	},
+	"files": [
+		"index.js"
+	],
+	"license": "MIT",
+	"devDependencies": {
+		"prettier": "^2.6.2"
+	},
+	"dependencies": {
+		"chalk": "^4.1.2",
+		"log-symbols": "^4.1.0"
+	}
+}
