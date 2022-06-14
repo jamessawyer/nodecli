@@ -3,6 +3,7 @@ const welcome = require('cli-welcome')
 const chalk = require('chalk')
 const sym = require('log-symbols')
 const checkNode = require('cli-check-node')
+const unhandled = require('cli-handle-unhandled')
 const pkg = require('./package.json')
 
 const log = console.log
@@ -18,6 +19,8 @@ const info = chalk.blue
 const warning = chalk.keyword('orange')
 const error = chalk.red.bold
 
+unhandled()
+
 welcome({
   title: pkg.name,
   tagLine: `Nice to meet you`,
@@ -30,6 +33,8 @@ welcome({
 })
 
 checkNode(10)
+
+// Promise.reject(new Error('Promise Reject Error'))
 
 log(`${chalk.bold.bgBlue(' Luka Luka ')}
 
