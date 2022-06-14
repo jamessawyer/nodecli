@@ -9,6 +9,7 @@ const github = chalk.hex(`#6cc644`).bold.inverse
 const blog = chalk.hex(`#6937ff`).bold.inverse
 const dimAndUnderline = chalk.dim.underline
 const italic = chalk.italic
+const bgBlue = chalk.bold.bgBlue
 
 // alerts
 const success = chalk.green
@@ -16,21 +17,30 @@ const info = chalk.blue
 const warning = chalk.keyword('orange')
 const error = chalk.red.bold
 
-init()
+// icons
+const successIcon = sym.success
+const infoIcon = sym.info
+const warningIcon = sym.warning
+const errorIcon = sym.error
 
-log(`${chalk.bold.bgBlue(' Luka Luka ')}
+module.exports = (async () => {
+  init()
 
-  ${italic(`I'm following the setup instructions for this mobile javascript debugger here. FYI, I'm using Windows XP SP2 32-bit. Please understand I am new to using git, node.js, and npm.
-  Now, I'm stuck on this step`)}
+  log(`${bgBlue(' Luka Luka ')}
 
-  🐦 ${twitter(` Twitter `)}: ${dimAndUnderline(`https://www.twitter.com/jamessawyer`)}
-  📖 ${github(` GitHub `)}: ${dimAndUnderline(`https://www.github.com/jamessawyer`)}
-  😎 ${blog(` Blog `)}: ${dimAndUnderline(`https://jamessawyer.com`)}
-`)
+    ${italic(`I'm following the setup instructions for this mobile javascript debugger here. FYI, I'm using Windows XP SP2 32-bit. Please understand I am new to using git, node.js, and npm.
+    Now, I'm stuck on this step`)}
 
-log(`
-  ${sym.success} ${success(' SUCCESS ')} Thanks for checking out my CLI
-  ${sym.info} ${info(' INFO ')} I'm creating a course on NodeCLI.com
-  ${sym.warning} ${warning(' WARNING ')} Please don't copy me. Be Yourself
-  ${sym.error} ${error(' ERROR ')} I'm on vacation. Contact me next week.
-`)
+    🐦 ${twitter(` Twitter `)}: ${dimAndUnderline(`https://www.twitter.com/jamessawyer`)}
+    📖 ${github(` GitHub `)}: ${dimAndUnderline(`https://www.github.com/jamessawyer`)}
+    😎 ${blog(` Blog `)}: ${dimAndUnderline(`https://jamessawyer.com`)}
+  `)
+
+
+  log(`
+    ${successIcon} ${success(' SUCCESS ')} Thanks for checking out my CLI
+    ${infoIcon} ${info(' INFO ')} I'm creating a course on NodeCLI.com
+    ${warningIcon} ${warning(' WARNING ')} Please don't copy me. Be Yourself
+    ${errorIcon} ${error(' ERROR ')} I'm on vacation. Contact me next week.
+  `)
+})()
