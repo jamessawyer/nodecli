@@ -1,10 +1,7 @@
 #!/usr/bin/env node
-const welcome = require('cli-welcome')
 const chalk = require('chalk')
 const sym = require('log-symbols')
-const checkNode = require('cli-check-node')
-const unhandled = require('cli-handle-unhandled')
-const pkg = require('./package.json')
+const init = require('./utils/init')
 
 const log = console.log
 const twitter = chalk.hex(`#1da1f2`).bold.inverse
@@ -19,22 +16,7 @@ const info = chalk.blue
 const warning = chalk.keyword('orange')
 const error = chalk.red.bold
 
-unhandled()
-
-welcome({
-  title: pkg.name,
-  tagLine: `Nice to meet you`,
-  description: pkg.description,
-  version: pkg.version,
-  bgColor: '#fadc00',
-  color: '#000000',
-  bold: true,
-  clear: true,
-})
-
-checkNode(10)
-
-// Promise.reject(new Error('Promise Reject Error'))
+init()
 
 log(`${chalk.bold.bgBlue(' Luka Luka ')}
 
