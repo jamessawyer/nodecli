@@ -2,6 +2,7 @@
 const welcome = require('cli-welcome')
 const chalk = require('chalk')
 const sym = require('log-symbols')
+const checkNode = require('cli-check-node')
 const pkg = require('./package.json')
 
 const log = console.log
@@ -27,6 +28,8 @@ welcome({
   bold: true,
   clear: true,
 })
+
+checkNode(10)
 
 log(`${chalk.bold.bgBlue(' Luka Luka ')}
 
