@@ -3,10 +3,10 @@ const unhandled = require('cli-handle-unhandled')
 const welcome = require('cli-welcome')
 const pkg = require('../package.json')
 
-module.exports = () => {
+module.exports = (minimal, clear) => {
   unhandled()
 
-  welcome({
+  !minimal && welcome({
     title: pkg.name,
     tagLine: `Nice to meet you`,
     description: pkg.description,
@@ -14,8 +14,9 @@ module.exports = () => {
     bgColor: '#fadc00',
     color: '#000000',
     bold: true,
-    clear: true,
+    clear,
   })
+  minimal && console.log('Luka Minimal Info')
 
   checkNode(10)
 }
