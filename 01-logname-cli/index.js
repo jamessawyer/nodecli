@@ -2,6 +2,7 @@
 const alert = require('cli-alerts')
 const init = require('./utils/init')
 const data = require('./utils/data')
+const stats = require('./utils/stats')
 const cli = require('./utils/cli')
 const debug = require('./utils/debug')
 
@@ -18,6 +19,8 @@ module.exports = (async () => {
   flags.bio && log(data.bio)
   flags.social && log(data.social)
   flags.ad && alert({ type: 'info', msg: data.ad })
+
+  stats()
 
   flags.debug && debug(cli)
 
