@@ -1,6 +1,7 @@
 const checkNode = require('cli-check-node')
 const unhandled = require('cli-handle-unhandled')
 const welcome = require('cli-welcome')
+const boxen = require('boxen')
 const pkg = require('../package.json')
 
 module.exports = (minimal, clear) => {
@@ -16,7 +17,12 @@ module.exports = (minimal, clear) => {
     bold: true,
     clear,
   })
-  minimal && console.log('Luka Minimal Info')
+  minimal && console.log(
+      boxen(
+        'Luka Minimal Info',
+        { padding: 1, borderStyle: 'classic', float: 'center' }
+      )
+    )
 
   checkNode(10)
 }
