@@ -14,6 +14,7 @@ const helpText = `
     ${yellow('--no-ad')}                  Don't print the ad info
     ${yellow('--clear')}                  Clear the console ${dim('(DEFAULT: true)')}
     ${yellow('--no-clear')}               Don't clear the console
+    ${yellow('-p')}, ${yellow('--posts')}              Fetch last 10 posts ${dim('(DEFAULT: false)')}
     ${yellow('-m')}, ${yellow('--minimal')}            Print minimal info ${dim('(DEFAULT: false)')}
     ${yellow('-d')}, ${yellow('--debug')}              Print debug info
     ${yellow('-v')}, ${yellow('--version')}            Print the version
@@ -46,6 +47,11 @@ const options = {
     ad: {
       type: 'boolean',
       default: true,
+    },
+    posts: {
+      type: 'boolean',
+      default: false,
+      alias: 'p',
     },
     clear: {
       type: 'boolean',

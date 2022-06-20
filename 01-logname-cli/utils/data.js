@@ -21,8 +21,13 @@ const social = `
 
 const ad = `Check out my https://NodeCLI.com course`
 
+const blogName = `JamesSawyer`
+const blogs = `latest Repos:`
+
 module.exports = {
   bio,
   social,
-  ad
+  ad,
+  blogName,
+  blogs,
 }

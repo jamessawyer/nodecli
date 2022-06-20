@@ -3,6 +3,7 @@ const alert = require('cli-alerts')
 const init = require('./utils/init')
 const data = require('./utils/data')
 const stats = require('./utils/stats')
+const posts = require('./utils/posts')
 const cli = require('./utils/cli')
 const debug = require('./utils/debug')
 
@@ -20,7 +21,11 @@ module.exports = (async () => {
   flags.social && log(data.social)
   flags.ad && alert({ type: 'info', msg: data.ad })
 
-  stats()
+  // stats()
+  // 是否获取文章
+  // luka -p
+  flags.posts && alert({ type: 'info', msg: data.blogs, name: data.blogName })
+  flags.posts && (await posts())
 
   flags.debug && debug(cli)
 
