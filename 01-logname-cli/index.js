@@ -6,6 +6,7 @@ const stats = require('./utils/stats')
 const posts = require('./utils/posts')
 const cli = require('./utils/cli')
 const debug = require('./utils/debug')
+const { prompt, Confirm, Select } = require('enquirer')
 
 const log = console.log
 const input = cli.input
@@ -13,6 +14,30 @@ const flags = cli.flags
 
 module.exports = (async () => {
   init(flags.minimal, flags.clear)
+
+  // const response = await prompt({
+  //   type: 'input',
+  //   name: 'username',
+  //   message: 'github username?'
+  // })
+
+  // console.log(response)
+
+  // const pt = new Confirm({
+  //   type: 'confirm',
+  //   name: 'question',
+  //   message: 'Do you like English?'
+  // })
+  // const res = await pt.run()
+  // console.log(res)
+
+  // const select = new Select({
+  //   name: 'color',
+  //   message: 'Select a color',
+  //   choices: ['yellow', 'blue', 'green', 'red']
+  // })
+  // const selectRes = await select.run()
+  // console.log(selectRes)
 
   // luka help 显示帮助信息
   input.includes('help') && cli.showHelp(0)
