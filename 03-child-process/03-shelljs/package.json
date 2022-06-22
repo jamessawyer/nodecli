@@ -1,0 +1,15 @@
+{
+  "name": "@jamessawyer/dir",
+  "version": "1.0.0",
+  "description": "",
+  "bin": {
+    "dir": "index.js"
+  },
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "shelljs": "^0.8.5"
+  }
+}
