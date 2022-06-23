@@ -9,6 +9,8 @@
 const makeDir = require('make-dir')
 const fs = require('fs')
 const path = require('path')
+const low = require('lowdb')
+const FileSync = require('lowdb/adapters/FileSync')
 
 const init = require('./utils/init');
 const cli = require('./utils/cli');
@@ -35,8 +37,20 @@ module.exports = (async () => {
 
 		// 写入文件
 		fs.writeFileSync('todos.json', '{}')
-
 	}
+
+	const adapter = new FileSync(dbTodos)
+	const db = low(adapter)
+	// 默认写入 todos: [] 数据
+	db.defaults({ todos: [] }).write()
+
+	// 使用 view | ls 命令查看todos
+	if (input.includes('view') || input.includes('ls')) {
+		// 获取json文件中所有的todos
+		const allTodos = db.get('todos').value()
+		console.log('allTodos: ', allTodos);
+	}
+
 
 	debug && log(flags);
 })();
