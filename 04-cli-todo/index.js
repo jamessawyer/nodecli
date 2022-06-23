@@ -11,7 +11,8 @@ const fs = require('fs')
 const path = require('path')
 const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
-const { green, red, yellow } = require('chalk')
+// const { green, red, yellow, dim, hex } = require('chalk')
+const chalk = require('chalk')
 const alert = require('cli-alerts') 
 
 const init = require('./utils/init')
@@ -51,8 +52,12 @@ module.exports = (async () => {
 	// 使用 view | ls 命令查看todos
 	if (input.includes('view') || input.includes('ls')) {
 		// 获取json文件中所有的todos
-		const allTodos = db.get('todos').value()
-		console.log('allTodos: ', allTodos);
+		const allTodos = db.get('todos').value() ?? []
+		allTodos.forEach((todo, i) => {
+			console.log(`${chalk.dim(`${++i}`)}: ${todo.title}`)
+		})
+		const count = allTodos.length
+		console.log(`\n${chalk.hex('#fad000').inverse(' TOTAL ')}: ${chalk.green(count)}\n`);
 	}
 
 	// 使用 todo add 命令，添加todo
