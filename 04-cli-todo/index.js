@@ -11,18 +11,22 @@ const fs = require('fs')
 const path = require('path')
 const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
+const { green, red, yellow } = require('chalk')
+const alert = require('cli-alerts') 
 
-const init = require('./utils/init');
-const cli = require('./utils/cli');
-const log = require('./utils/log');
+const init = require('./utils/init')
+const cli = require('./utils/cli')
+const log = require('./utils/log')
+const ask = require('./utils/ask')
 
-const input = cli.input;
-const flags = cli.flags;
-const { clear, debug } = flags;
+const input = cli.input
+const flags = cli.flags
+const { clear, debug } = flags
 
 
 // 使用json存储数据
 const dbTodos = path.join(process.cwd(), '.todo/todos.json')
+
 
 module.exports = (async () => {
 	init({ clear });
@@ -49,6 +53,20 @@ module.exports = (async () => {
 		// 获取json文件中所有的todos
 		const allTodos = db.get('todos').value()
 		console.log('allTodos: ', allTodos);
+	}
+
+	// 使用 todo add 命令，添加todo
+	if (input.includes('add')) {
+		const whatTodo = await ask({ message: '添加一个todo' })
+
+		// 写入到数据库
+		db.get('todos').push({ title: whatTodo }).write()
+		
+		alert({
+			type: 'success',
+			name: 'ADDED',
+			msg: 'todo添加成功'
+		})
 	}
 
 
