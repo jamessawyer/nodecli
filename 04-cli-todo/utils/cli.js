@@ -6,28 +6,33 @@ const flags = {
 		type: `boolean`,
 		default: true,
 		alias: `c`,
-		desc: `Clear the console`
+		desc: `清空console`
 	},
 	noClear: {
 		type: `boolean`,
 		default: false,
-		desc: `Don't clear the console`
+		desc: `不清空console`
 	},
 	debug: {
 		type: `boolean`,
 		default: false,
 		alias: `d`,
-		desc: `Print debug info`
+		desc: `打印调试信息`
 	},
 	version: {
 		type: `boolean`,
 		alias: `v`,
-		desc: `Print CLI version`
+		desc: `打印版本信息`
 	}
 };
 
 const commands = {
-	help: { desc: `Print help info` }
+	help: { desc: `打印帮助信息` },
+	view: { desc: `查看所有的todos` },
+	ls: { desc: `查看所有的todos` },
+	add: { desc: `添加todo` },
+	remove: { desc: `移除todos，可多选` },
+	del: { desc: `移除todos，可多选` },
 };
 
 const helpText = meowHelp({
