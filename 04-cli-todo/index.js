@@ -19,6 +19,7 @@ const init = require('./utils/init')
 const cli = require('./utils/cli')
 const log = require('./utils/log')
 const ask = require('./utils/ask')
+const select = require('./utils/select')
 
 const input = cli.input
 const flags = cli.flags
@@ -74,6 +75,19 @@ module.exports = (async () => {
 		})
 	}
 
+	if (input.includes('remove') || input.includes('del')) {
+		const todos = db.get('todos').value() // 所有的todos
+		const removeTodos = await select({ message: '请选择：', choices: todos })
+		// 删除成功后 更新json数据库
+		removeTodos.forEach(todoTitle => {
+			db.get('todos').remove({ title: todoTitle }).write()
+		})
+		alert({
+			type: 'success',
+			name: 'DELETE',
+			msg: `${removeTodos.length} todos`
+		})
+	}
 
 	debug && log(flags);
 })();
